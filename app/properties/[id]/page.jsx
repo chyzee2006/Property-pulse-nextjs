@@ -1,5 +1,35 @@
-const PropertyPage = ({ params }) => {
-    return ( <div>Property page{ params.id }</div> );
-}
- 
+import PropertyHeaderImage from "@/components/PropertyHeaderImage";
+import PropertyDetails from "@/components/PropertyDetails";
+import connectDB from "@/config/database";
+import Property from "@/models/Property";
+import Link from "next/link";
+import { FaArrowLeft } from "react-icons/fa";
+const PropertyPage = async ({ params }) => {
+  await connectDB();
+
+  const property = await Property.findById(params.id).lean();
+  return (
+    <>
+      <PropertyHeaderImage image={property.images[0]} />
+      <section>
+        <div className="container px-6 py-6 m-auto">
+          <Link
+            href="/properties"
+            className="flex items-center text-blue-500 hover:text-blue-600"
+          >
+            <FaArrowLeft className="mr-2" /> Back to Properties
+          </Link>
+        </div>
+      </section>
+      <section className="bg-blue-50">
+        <div className="container px-6 py-10 m-auto">
+          <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-70/30">
+            <PropertyDetails property={property} />
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
 export default PropertyPage;
