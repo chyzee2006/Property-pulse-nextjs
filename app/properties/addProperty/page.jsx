@@ -1,5 +1,14 @@
+import PropertyAddForm from "@/components/PropertyAddForm";
 const AddPropertyPage = () => {
-    return ( <div>Add Property Page</div> );
-}
- 
+  return (
+    <section className="bg-blue-50">
+      <div className="container max-w-2xl py-24 m-auto">
+        <div className="px-6 py-8 m-4 mb-4 bg-white rounded-md shadow-md md:m-0">
+          <PropertyAddForm />
+        </div>
+      </div>
+    </section>
+  );
+};
+
 export default AddPropertyPage;

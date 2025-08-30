@@ -38,7 +38,7 @@ export const authOptions = {
             return true;
         },
         // session callbsck function that modifies the session object
-        async session({ session, token }) { 
+        async session({ session }) { 
             // 1. get user from database
             const user = await User.findOne({ email: session.user.email });
             // 2. asign user id from session
