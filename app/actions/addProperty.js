@@ -12,7 +12,7 @@ async function addProperty(formData) {
   if (!sessionUser || !sessionUser.userId) {
     throw new Error("User ID is required to add a property.");
   }
-  const userId = sessionUser.userId;
+  const {userId} = sessionUser;
 
   // access all values from amenities and images
   const amenities = formData.getAll("amenities");
