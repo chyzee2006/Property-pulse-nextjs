@@ -1,6 +1,9 @@
 import PropertyHeaderImage from "@/components/PropertyHeaderImage";
 import PropertyImages from "@/components/PropertyImages";
 import PropertyDetails from "@/components/PropertyDetails";
+import PropertyContactForm from "@/components/PropertyContactForm";
+import BookmarkButton from "@/components/BookmarkButton";
+import ShareButtons from "@/components/ShareButtons";
 import connectDB from "@/config/database";
 import Property from "@/models/Property";
 import Link from "next/link";
@@ -31,8 +34,13 @@ const PropertyPage = async ({ params }) => {
       </section>
       <section className="bg-blue-50">
         <div className="container px-6 py-10 m-auto">
-          <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-70/30">
+          <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-[70%_28%] ">
             <PropertyDetails property={property} />
+            <aside className="space-y-4">
+              <BookmarkButton property={property} />
+              <ShareButtons property={property} />
+              <PropertyContactForm property={property} />
+            </aside>
           </div>
         </div>
       </section>

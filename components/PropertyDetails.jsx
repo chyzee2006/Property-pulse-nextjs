@@ -1,5 +1,5 @@
 import { FaTimes, FaBed, FaBath, FaRulerCombined, FaCheck, FaMapMarker } from "react-icons/fa";
-
+import PropertyMap from "./PropertyMap";
 const PropertyDetails = ({ property }) => {
   return (
     <main>
@@ -84,9 +84,9 @@ const PropertyDetails = ({ property }) => {
         </ul>
       </div>
       {/* <!-- Map --> */}
-      <div className="p-6 mt-6 bg-white rounded-lg shadow-md">
-        <div id="map"></div>
-      </div>
+      {/* <div className="p-6 mt-6 bg-white rounded-lg shadow-md">
+        <PropertyMap property={property} />
+      </div> */}
     </main>
   );
 };
