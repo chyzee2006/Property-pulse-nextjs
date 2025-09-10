@@ -3,7 +3,7 @@ import connectDB from "@/config/database";
 import User from "@/models/User";
 import { getSessionUser } from "@/utils/getSessionUser";
 import Link from "next/link";
-import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowAltCircleLeft } from "react-icons/fa";
 
 
 const SavedPropertiesPage = async () => {
@@ -26,7 +26,7 @@ const SavedPropertiesPage = async () => {
             href="/properties"
             className="flex items-center text-blue-500 hover:text-blue-600"
           >
-            <FaArrowLeft className="mr-2" /> Back to Properties
+            <FaArrowAltCircleLeft className="mr-2" /> Back to Properties
           </Link>
         </div>
     </section> );

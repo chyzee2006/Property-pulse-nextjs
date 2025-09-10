@@ -7,7 +7,7 @@ import ShareButtons from "@/components/ShareButtons";
 import connectDB from "@/config/database";
 import Property from "@/models/Property";
 import Link from "next/link";
-import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowAltCircleLeft } from "react-icons/fa";
 import { convertToSerializableObject } from "@/utils/convertToObject";
 
 const PropertyPage = async ({ params }) => {
@@ -28,7 +28,7 @@ const PropertyPage = async ({ params }) => {
             href="/properties"
             className="flex items-center text-blue-500 hover:text-blue-600"
           >
-            <FaArrowLeft className="mr-2" /> Back to Properties
+            <FaArrowAltCircleLeft className="mr-2" /> Back to Properties
           </Link>
         </div>
       </section>
