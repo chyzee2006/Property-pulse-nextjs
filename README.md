@@ -135,5 +135,5 @@ CLOUDINARY_API_SECRET=
 
 ## 👨‍💻 Author
 
-Built by Chigbata-Fidelis Chizoba 
-Full-stack Developer | React & Next.js Enthusiast
+- Built by Chigbata-Fidelis Chizoba 
+- Full-stack Developer | React & Next.js Enthusiast
