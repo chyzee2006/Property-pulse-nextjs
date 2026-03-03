@@ -13,15 +13,22 @@ import { convertToSerializableObject } from "@/utils/convertToObject";
 const PropertyPage = async ({ params }) => {
   await connectDB();
 
-  const { id } = await params;
+  const { id } = params;
+
   const propertyDoc = await Property.findById(id).lean();
   const property = convertToSerializableObject(propertyDoc);
+
   if (!property) {
-    return <h1 className="mt-10 text-2xl font-bold text-center">Property not found</h1>;
+    return (
+      <h1 className="mt-10 text-2xl font-bold text-center">
+        Property not found
+      </h1>
+    );
   }
+
   return (
     <>
-      <PropertyHeaderImage image={property.images[0]} />
+      <PropertyHeaderImage image={property.images?.[0]} />
       <section>
         <div className="container px-6 py-6 m-auto">
           <Link
@@ -32,9 +39,10 @@ const PropertyPage = async ({ params }) => {
           </Link>
         </div>
       </section>
+
       <section className="bg-blue-50">
         <div className="container px-6 py-10 m-auto">
-          <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-[70%_28%] ">
+          <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-[70%_28%]">
             <PropertyDetails property={property} />
             <aside className="space-y-4">
               <BookmarkButton property={property} />
@@ -44,7 +52,8 @@ const PropertyPage = async ({ params }) => {
           </div>
         </div>
       </section>
-      <PropertyImages images={property.images} />
+
+      <PropertyImages images={property.images || []} />
     </>
   );
 };
