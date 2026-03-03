@@ -5,7 +5,6 @@ import { FaArrowAltCircleLeft } from "react-icons/fa";
 import connectDB from "@/config/database";
 import Property from "@/models/Property";
 import { convertToSerializableObject } from "@/utils/convertToObject";
-export const dynamic = "force-dynamic";
 const SearchResultsPage = async ({ searchParams: { location, propertyType } }) => {
     await connectDB();
 
