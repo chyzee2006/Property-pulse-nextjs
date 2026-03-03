@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { GlobalProvider } from "@/context/GlobalContext";
 
 export const metadata = {
-  title: "Property Pulse",
+  title: "Property Pulse|Fidelis Chizoba",
   description:
     "Your go-to platform for real estate insights and property management.",
   keywords: "real estate, property management, insights, rental, listings",
