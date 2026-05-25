@@ -3,8 +3,11 @@ import Property from "@/models/Property";
 import PropertyCard from "@/components/PropertyCard";
 import Pagination from "@/components/Pagination";
 
-const PropertiesPage = async ({ searchParams: { page = 1, pageSize = 9 } }) => {
+const PropertiesPage = async ({ searchParams }) => {
   await connectDB();
+  const resolvedSearchParams = await searchParams;
+  const page = resolvedSearchParams?.page ? parseInt(resolvedSearchParams.page) : 1;
+  const pageSize = resolvedSearchParams?.pageSize ? parseInt(resolvedSearchParams.pageSize) : 9;
 
   const skip = (page - 1) * pageSize;
   const total = await Property.countDocuments({});

@@ -107,6 +107,7 @@ The application is deployed on **Vercel**.
 
 🔗 **Live Demo:** 
 
+https://property-pulse-eight-mauve.vercel.app/
 
 Environment variables required:
 

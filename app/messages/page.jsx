@@ -7,7 +7,7 @@ import MessageCard from "@/components/MessageCard";
 
 
 const MessagesPage = async () => {
-    connectDB();
+    await connectDB();
 
     const sessionUser = await getSessionUser();
 

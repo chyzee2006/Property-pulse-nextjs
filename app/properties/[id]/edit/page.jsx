@@ -1,11 +1,18 @@
 import PropertyEditForm from "@/components/PropertyEditForm";
 import connectDB from "@/config/database";
 import Property from "@/models/Property";
+import mongoose from "mongoose";
 import { convertToSerializableObject } from "@/utils/convertToObject";
 const PropertyEditPage = async ({ params }) => {
     await connectDB();
 
-    const propertyDoc = await Property.findById(params.id).lean();
+    const { id } = await params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return <h1 className="mt-10 text-2xl font-bold text-center">Property not found</h1>;
+    }
+
+    const propertyDoc = await Property.findById(id).lean();
     const property = convertToSerializableObject(propertyDoc);
 
     if (!property) {

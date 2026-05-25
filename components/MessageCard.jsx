@@ -30,7 +30,7 @@ const MessageCard = ({ message }) => {
         { !isRead && (<div className="absolute px-2 py-1 text-white bg-yellow-500 rounded-md top-2 right-2 ">New</div>) }
         <h2 className="mb-4 text-xl">
             <span className="font-bold">Property Inquiry:</span>{' '}
-            { message.property.name }
+            { message.property?.name || 'Deleted Property' }
         </h2>
         <p className="text-gray-700">{message.body}</p>
         <ul className="mt-4">

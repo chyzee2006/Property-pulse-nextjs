@@ -7,9 +7,21 @@ import { FaArrowAltCircleLeft } from "react-icons/fa";
 
 
 const SavedPropertiesPage = async () => {
-    const { userId } = await getSessionUser();
+    await connectDB();
+    const sessionUser = await getSessionUser();
+    if (!sessionUser || !sessionUser.userId) {
+        return (
+            <section className="px-4 py-6">
+                <div className="container px-4 py-6 m-auto lg:container">
+                    <h1 className="mb-4 text-2xl font-bold text-center">You must be logged in to view saved properties.</h1>
+                </div>
+            </section>
+        );
+    }
+    const { userId } = sessionUser;
     
-    const { bookmarks } = await User.findById(userId).populate('bookmarks');
+    const user = await User.findById(userId).populate('bookmarks');
+    const bookmarks = user ? user.bookmarks : [];
     
 
     return (<section className="px-4py-6">

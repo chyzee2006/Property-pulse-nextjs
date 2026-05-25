@@ -5,10 +5,12 @@ import { FaArrowAltCircleLeft } from "react-icons/fa";
 import connectDB from "@/config/database";
 import Property from "@/models/Property";
 import { convertToSerializableObject } from "@/utils/convertToObject";
-const SearchResultsPage = async ({ searchParams: { location, propertyType } }) => {
+const SearchResultsPage = async ({ searchParams }) => {
     await connectDB();
+    const resolvedSearchParams = await searchParams;
+    const { location, propertyType } = resolvedSearchParams || {};
 
-    const locationPattern = new RegExp(location, 'i');
+    const locationPattern = new RegExp(location || '', 'i');
 
     let query = {
         $or: [

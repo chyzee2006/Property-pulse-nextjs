@@ -6,6 +6,7 @@ import BookmarkButton from "@/components/BookmarkButton";
 import ShareButtons from "@/components/ShareButtons";
 import connectDB from "@/config/database";
 import Property from "@/models/Property";
+import mongoose from "mongoose";
 import Link from "next/link";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import { convertToSerializableObject } from "@/utils/convertToObject";
@@ -13,7 +14,15 @@ import { convertToSerializableObject } from "@/utils/convertToObject";
 const PropertyPage = async ({ params }) => {
   await connectDB();
 
-  const { id } = params;
+  const { id } = await params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return (
+      <h1 className="mt-10 text-2xl font-bold text-center">
+        Property not found
+      </h1>
+    );
+  }
 
   const propertyDoc = await Property.findById(id).lean();
   const property = convertToSerializableObject(propertyDoc);

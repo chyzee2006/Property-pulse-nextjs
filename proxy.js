@@ -7,5 +7,5 @@ export default withAuth({
 });
 
 export const config = {
-  matcher: ["/properties/add", "/profile", "/properties/saved", "/messages"],
+  matcher: ["/properties/addProperty", "/profile", "/properties/saved", "/messages"],
 };

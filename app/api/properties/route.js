@@ -5,10 +5,9 @@ export const GET = async () => {
         await connectDB();
         const properties = await Property.find({});
 
-        return new Response(properties, { status: 200, });
+        return Response.json(properties, { status: 200 });
     } catch (error) {
+        console.error("Error in GET properties API:", error);
         return new Response("Failed to fetch properties.", { status: 500 });
-        
     }
-    
 };
